@@ -20,13 +20,17 @@ function App() {
   const [passage, setPassage] = useState([])
 
 
-  var greeneggs = 'I like green eggs and ham'
+
+  var greeneggs = 'Do you like green eggs and ham I do not like them Sam I am I do not like green eggs and ham'
+  var greeneggsDisplay = 'Do you like green eggs and ham? I do not like them Sam-I-am. I do not like green eggs and ham.'
   
-  var goodnightMoon = 'In the great green room There was a telephone And a red balloon And a picture of The cow jumping over the moon And there were three little bears sitting on chairs And two little kittens And a pair of mittens And a little toy house And a young mouse And a comb and a brush and a bowl full of mush And a quiet old lady who was whispering “hush” Goodnight room Goodnight moon Goodnight cow jumping over the moon Goodnight light And the red balloon Goodnight bears Goodnight chairs Goodnight kittens And goodnight mittens Goodnight clocks And goodnight socks Goodnight little house And goodnight mouse Goodnight comb And goodnight brush Goodnight nobody Goodnight mush And goodnight to the old lady whispering “hush” Goodnight stars Goodnight air Goodnight noises everywhere'
+
+  var goodnightMoon = 'Goodnight moon Goodnight cow jumping over the moon Goodnight light And the red balloon Goodnight bears Goodnight chairs Goodnight kittens And goodnight mittens Goodnight clocks And goodnight socks Goodnight little house And goodnight mouse Goodnight comb And goodnight brush Goodnight nobody Goodnight mush And goodnight to the old lady whispering “hush” Goodnight stars Goodnight air Goodnight noises everywhere'
   
-  //var passage = goodnightMoon
+  var clifford = 'I love Clifford the Big Red Dog'
+
   var xtemp = JSON.stringify(passage)
-  var passageWords = xtemp.split(" ")
+  
 
   
   useEffect(() => {
@@ -64,8 +68,9 @@ function App() {
   }
 
   const handleSaveNote = () => {
-
-    var vocabWords = passageWords
+    var passageWords = JSON.parse(xtemp)
+    var passageWords2 = passageWords.split(" ")
+    var vocabWords = passageWords2
     var passageCount = Object.keys(passageWords).length
     setSavedNotes([...savedNotes, note])
     var speech = note.split(" ")
@@ -95,16 +100,24 @@ function App() {
 
   const goodnightMoonMethod = () => {
     setPassage(goodnightMoon)
-    document.getElementById("anjali").innerHTML = passage
+    document.getElementById("anjali").innerHTML = goodnightMoon
     myFunction()
   }
 
   const greenEggsMethod = () => {
     setPassage(greeneggs) 
-    document.getElementById("anjali").innerHTML = passage
+    document.getElementById("anjali").innerHTML = greeneggsDisplay
     
     myFunction()
   }
+
+  const cliffordMethod = () => {
+    setPassage(clifford) 
+    document.getElementById("anjali").innerHTML = clifford
+    
+    myFunction()
+  }
+
 
   function myFunction() {
     //alert("hello")
@@ -132,7 +145,7 @@ function App() {
             <center><img src="greeneggs.jpeg" alt="greeneggs" onClick={greenEggsMethod}/></center>
             </div>
             <div class="column">
-            <center><img src="clifford.jpeg" alt="clifford" onClick={greenEggsMethod}/></center>
+            <center><img src="clifford.jpeg" alt="clifford" onClick={cliffordMethod}/></center>
             </div>
           </div>
 

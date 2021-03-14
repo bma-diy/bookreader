@@ -19,6 +19,7 @@
   width: 33.33%;
   padding: 5px;
   padding-left: 50px;
+  filter: drop-shadow(4px 2px 15px rgb(0, 0, 0));
 }
 
 /* Clear floats after image containers */
